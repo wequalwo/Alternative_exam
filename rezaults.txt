@@ -1,0 +1,24 @@
+model:
+    KNeighborsClassifier()
+    TfidfVectorize()
+    ACBT tokenization
+    10000 words: distance1, test_size = 0.3
+                                  Testing: 1263.7 secs
+                                 accuracy: 0.8786082182476794
+                                precision: 0.9558617473686926
+                                   recall: 0.8703807359729023
+                                  jaccard: 0.836794532574071
+                                       f1: 0.9041893103944211
+
+model:
+    DecisionTreeClassifier()
+    TfidfVectorize()
+    ACBT tokenization
+    10000 words: distance1, test_size = 0.3
+                                  Testing: 1.63 secs
+                                 accuracy: 0.8802071541770432
+                                precision: 0.9580177342864318
+                                   recall: 0.8719725104156972
+                                  jaccard: 0.8399442810365121
+                                       f1: 0.9065180730243577
+
