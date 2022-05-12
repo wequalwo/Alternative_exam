@@ -13,7 +13,7 @@ model:
     -//-
     CBT tokenization:
                                  Training: 2.34
-                                  Testing: 2020.74 secs
+                                  Testing: 2020.74
                                  accuracy: 0.8314891328956305
                                 precision: 0.8889301968694113
                                    recall: 0.8095016214160122
@@ -27,11 +27,19 @@ model:
     10000 words: distance1, test_size = 0.3
                                  Training: 31
                                   Testing: 1.63
-                                 accuracy: 0.8802071541770432
-                                precision: 0.9580177342864318
-                                   recall: 0.8719725104156972
-                                  jaccard: 0.8399442810365121
-                                       f1: 0.9065180730243577
+                                 accuracy: 0.8909505879925728
+                                precision: 0.9579969134646661
+                                   recall: 0.881393304941355
+                                  jaccard: 0.8493567061393597
+                                       f1: 0.9120292859354826
+    Observation: testing on distance2 set:
+                                 Training: -//-
+                                  Testing: 66.92
+                                 accuracy: 0.6158763277136455
+                                precision: 0.5268902581991557
+                                   recall: 0.5216994708518236
+                                  jaccard: 0.3708080698240485
+                                       f1: 0.5188434278833247
 
     -//-
     CBT tokenization:
@@ -50,19 +58,19 @@ model:
     10000 words: distance1, test_size = 0.3
                                 Training: 6.94
                                  Testing: 2.21
-                                accuracy: 0.8226313108444646
-                               precision: 0.8892568889468755
-                                  recall: 0.7880876881529153
-                                 jaccard: 0.71835835812324
-                                      f1: 0.8154864487137374
+                                accuracy: 0.8411324014854549
+                               precision: 0.9014095034596571
+                                  recall: 0.8060420017123461
+                                 jaccard: 0.7402521173551497
+                                      f1: 0.8304752800232688
     Observation: testing on distance2 set:
                                Training: -//-
-                                 Testing: 128.98
-                                accuracy: 0.8863621445135927
-                               precision: 0.8231299338100863
-                                  recall: 0.8039759525226243
-                                 jaccard: 0.7119369916264349
-                                      f1: 0.8085792682833596
+                                 Testing: 187.08
+                                accuracy: 0.8676324189716588
+                               precision: 0.8084188724006413
+                                  recall: 0.7613655365384585
+                                 jaccard: 0.665634460615231
+                                      f1: 0.7678232457292041
 
     -//-
     CBT tokenization:
