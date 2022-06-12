@@ -1,8 +1,7 @@
-# Код альтернативного эезамена по МЛиТА 
+# Код альтернативного эезамена по МЛиТА #
 **Тема**: Анализ алгоритмов машинного обучения и детерминированных алгоритмов, основанных на сравнении слова со словарём, для контекстно-свободной коррекции правописания.
 ===========
-:white_check_mark: [Корректор на основе мешинного обучения](https://github.com/wequalwo/Alternative_exam/blob/master/ML_r%C3%A9viseur.ipynb)
-:white_check_mark: [Корркеторы на основе перебора](https://github.com/wequalwo/Alternative_exam/blob/master/r%C3%A9viseur.ipynb)
+:white_check_mark: [Корректор на основе мешинного обучения](https://github.com/wequalwo/Alternative_exam/blob/master/ML_r%C3%A9viseur.ipynb    :white_check_mark: [Корркеторы на основе перебора](https://github.com/wequalwo/Alternative_exam/blob/master/r%C3%A9viseur.ipynb)
 **Описание остальных файлов:**
 + [report.pdf](https://github.com/wequalwo/Alternative_exam/blob/master/report.pdf)   - презентация доклада
 + [results.txt](https://github.com/wequalwo/Alternative_exam/blob/master/results.txt)  - Результаты замеров метрик классификации
