@@ -1,4 +1,4 @@
-TOKEN = '6225529145:AAEiic5AitqYpKRV16C2tYOCDKHUAvcZnKY'
+TOKEN = ############################
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
