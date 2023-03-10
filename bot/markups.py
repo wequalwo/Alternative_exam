@@ -4,11 +4,12 @@ btnBack = KeyboardButton('⬅️ Back')
 # -- Main --
 btnJaccard = KeyboardButton('Simple Jaccard and Levenstein')
 btnML = KeyboardButton('Machine learning')
+btnAdvanced = KeyboardButton('Advanced corrector')
+
 btnCheck = KeyboardButton('Check dictionary')
 
-
-mainMenu = ReplyKeyboardMarkup(resize_keyboard = True).add(btnJaccard, btnML)
+mainMenu = ReplyKeyboardMarkup(resize_keyboard = True).add(btnJaccard, btnML, btnAdvanced, btnCheck)
 
 
 # -- Other -- 
-MlMenu = ReplyKeyboardMarkup(resize_keyboard = True).add(btnBack, btnCheck)
+otherMenu = ReplyKeyboardMarkup(resize_keyboard = True).add(btnBack)

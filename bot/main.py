@@ -5,7 +5,7 @@ from aiogram.utils import executor
 
 
 from simple_r import *
-from ML import *
+from advanced_r import *
 
 import markups as men
 
@@ -14,6 +14,9 @@ dp = Dispatcher(bot)
 
 CORE_TYPE = 0
 WORDS = []
+ADVANCED = []
+
+
 class Corrector:
     def __init__(self, sts):
         self.status = sts
@@ -23,10 +26,13 @@ class Corrector:
             return '🍏Jaccard: ' + JDreco([line])[0] + '\n' + '🍎Levenstein: ' + levenstein([line])[0]
         elif self.status == 2: #ML
             return ML_T9_line(line)
-        elif self.status == 3: #check
-            return str(line in WORDS)
+        elif self.status == 3: #advanced
+            return ADVANCED.advanced_correct(line)
+        elif self.status == 4: #check
+            
+            return 'В основном словаре: ' + ('✅' if line in WORDS else '❌')  + '\nВ advanced- словаре: '  +  ('✅' if line in ADVANCED.COUNTS else '❌')
         else:
-            return '🍏Jaccard: ' + JDreco([line])[0] + '\n🍎Levenstein: ' + levenstein([line])[0]  + '\n💩ML v1.2: ' + ML_T9_line(line)
+            return '🍏Jaccard: ' + JDreco([line])[0] + '\n🍎Levenstein: ' + levenstein([line])[0]  + '\n💩ML v1.2: ' + ML_T9_line(line) + '\n🥭Advanced correct: ' + ADVANCED.advanced_correct(line)
         
 USERS_DICT = {}
 USERS_MODELS = {}
@@ -51,16 +57,22 @@ async def echo_message(msg: types.Message):
     elif msg.text == 'Simple Jaccard and Levenstein':
         corrector = USERS_DICT[msg.from_id]
         corrector.status = 1
-        await bot.send_message(msg.from_user.id, 'Простейшие корректоры, основаные на расстоянии Жаккара и Левенштейна к Вашим услугам', reply_markup=men.MlMenu)
+        await bot.send_message(msg.from_user.id, 'Простейшие корректоры, основаные на расстоянии Жаккара и Левенштейна, к Вашим услугам', reply_markup=men.otherMenu)
 
     elif msg.text == 'Machine learning':
         corrector = USERS_DICT[msg.from_id]
         corrector.status = 2
-        await bot.send_message(msg.from_user.id, 'Machine learning:\n 💩Обращаем ваше внимание на то, что загрузить полноценную версию корректора, основанного на машинном обучении, в бота пока не удалось. Здесь лежит ущербная версия...', reply_markup = men.MlMenu)
-    elif msg.text == 'Check dictionary':
+        await bot.send_message(msg.from_user.id, 'Machine learning:\n 💩Обращаем ваше внимание на то, что загрузить полноценную версию корректора, основанного на машинном обучении, в бота пока не удалось. Здесь лежит ущербная версия...', reply_markup = men.otherMenu)
+    
+    elif msg.text == 'Advanced corrector':
         corrector = USERS_DICT[msg.from_id]
         corrector.status = 3
-        await bot.send_message(msg.from_user.id, 'Введите слово, а я скажу, есть ли оно в нашем словаре', reply_markup = men.MlMenu)
+        await bot.send_message(msg.from_user.id, 'Advanced corrector. Слова исправляются с помощью поиска ошибки. В случае провала используем голосование остальных корректоров', reply_markup = men.otherMenu)
+
+    elif msg.text == 'Check dictionary':
+        corrector = USERS_DICT[msg.from_id]
+        corrector.status = 4
+        await bot.send_message(msg.from_user.id, 'Введите слово, а я скажу, есть ли оно в используемых словарях', reply_markup = men.otherMenu)
 
     else:
         corrector = USERS_DICT[msg.from_id]
@@ -73,5 +85,6 @@ if __name__ == '__main__':
     with open('list.data', 'rb') as file:  
         WORDS = pickle.load(file)
     ti = learn()
+    ADVANCED = Advanced()
     print(ti)
     executor.start_polling(dp)
