@@ -9,7 +9,7 @@ from advanced_r import *
 
 import markups as men
 
-bot = Bot(token=TOKEN)
+bot = Bot(token = TOKEN)
 dp = Dispatcher(bot)
 
 CORE_TYPE = 0
@@ -20,8 +20,22 @@ ADVANCED = []
 class Corrector:
     def __init__(self, sts):
         self.status = sts
+        self.eng_rep = 'f,dult`;pbqrkvyjghcnea[wxio]sm\'.z'
+        self.alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьяюя'
+
     def correct(self, line):
         line = line.lower()
+        if line[0] not in self.alphabet:
+            sent_new = ''
+            for i in range(len(line)):
+                if line[i] == ' ': 
+                    line += ' '
+                    continue
+                else:
+                    sent_new += self.alphabet[self.eng_rep.find(line[i])]
+            line = sent_new
+
+
         if self.status == 1: #Jaccard + Levenstein
             return '🍏Jaccard: ' + JDreco([line])[0] + '\n' + '🍎Levenstein: ' + levenstein([line])[0]
         elif self.status == 2: #ML
