@@ -1,4 +1,4 @@
-TOKEN = ############################
+TOKEN = '6225529145:AAEiic5AitqYpKRV16C2tYOCDKHUAvcZnKY'
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
@@ -54,7 +54,7 @@ USERS_MODELS = {}
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
     USERS_DICT[message.from_id] = Corrector(0)
-    await message.reply("Напиши мне что-нибудь неприличное!", reply_markup=men.mainMenu)
+    await message.reply("Напиши мне что-нибудь, а я попробую исправить ошибки!", reply_markup=men.mainMenu)
 
 
 @dp.message_handler(commands=['help'])
