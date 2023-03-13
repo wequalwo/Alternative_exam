@@ -46,7 +46,7 @@ class Corrector:
             
             return 'В основном словаре: ' + ('✅' if line in WORDS else '❌')  + '\nВ advanced- словаре: '  +  ('✅' if line in ADVANCED.COUNTS else '❌')
         else:
-            return '🍏Jaccard: ' + JDreco([line])[0] + '\n🍎Levenstein: ' + levenstein([line])[0]  + '\n💩ML v1.2: ' + ML_T9_line(line) + '\n🥭Advanced correct: ' + ADVANCED.advanced_correct(line)
+            return '🍏Jaccard: ' + JDreco([line])[0] + '\n🍎Levenstein: ' + levenstein([line])[0]  + '\n🌚ML v1.2: ' + ML_T9_line(line) + '\n🥭Advanced correct: ' + ADVANCED.advanced_correct(line)
         
 USERS_DICT = {}
 USERS_MODELS = {}
@@ -76,7 +76,7 @@ async def echo_message(msg: types.Message):
     elif msg.text == 'Machine learning':
         corrector = USERS_DICT[msg.from_id]
         corrector.status = 2
-        await bot.send_message(msg.from_user.id, 'Machine learning:\n 💩Обращаем ваше внимание на то, что загрузить полноценную версию корректора, основанного на машинном обучении, в бота пока не удалось. Здесь лежит ущербная версия...', reply_markup = men.otherMenu)
+        await bot.send_message(msg.from_user.id, 'Machine learning:\n 🌚Обращаем ваше внимание на то, что загрузить полноценную версию корректора, основанного на машинном обучении, в бота пока не удалось. Здесь лежит ущербная...', reply_markup = men.otherMenu)
     
     elif msg.text == 'Advanced corrector':
         corrector = USERS_DICT[msg.from_id]
