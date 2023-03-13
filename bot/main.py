@@ -1,4 +1,4 @@
-TOKEN = '6225529145:AAEiic5AitqYpKRV16C2tYOCDKHUAvcZnKY'
+import config as cfg
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
@@ -9,7 +9,7 @@ from advanced_r import *
 
 import markups as men
 
-bot = Bot(token = TOKEN)
+bot = Bot(token = cfg.TOKEN)
 dp = Dispatcher(bot)
 
 CORE_TYPE = 0
